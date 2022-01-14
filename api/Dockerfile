@@ -9,4 +9,5 @@ FROM java:8-jdk-alpine
 WORKDIR /app
 COPY --from=appserver /usr/src/demo/target/demo-0.0.1-SNAPSHOT.jar .
 ENTRYPOINT ["java", "-jar", "/app/demo-0.0.1-SNAPSHOT.jar"]
+ENV DB_PASS=secret
 CMD ["--spring.profiles.active=postgres"]
